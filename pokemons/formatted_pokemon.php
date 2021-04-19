@@ -82,10 +82,83 @@ if($page==count($results50)-1) { echo "<a class=" . "disabled" . " href=#"  . ">
 {echo "<a class=" . "next" . " href=/formatted_pokemon.php/?page=" .$page+1 . ">Next page >>></a>";}
 echo '</main>';
 
-
+echo '<pre>';
 echo print_r($results50[$page]);
+echo '</pre>';
 
 
+?>
+
+<?php
+if($_SERVER['REQUEST_METHOD']=='POST'&&!empty($_POST['name'])&&!empty($_POST['id'])){
+$newname=$_POST['name'];
+$newid=$_POST['id'];
+$newtype=$_POST['type'];
+$newarray=array();
+array_push($newarray, (object)[
+          'name'=>$newname,
+          'id'=>$newid,
+          'type'=>$newtype,
+      ] );
+      echo $newarray;
+
+
+/* class NewPokemon {
+  // Properties
+  public $name;
+  public $id;
+  public $type;
+
+  // Methods
+  function set_name($name) {
+    $this->name = $name;
+  }
+  function get_name() {
+    return $this->name;
+  }
+  function set_id($id) {
+    $this->id = $id;
+  }
+  function get_id() {
+    return $this->id;
+  }
+  function set_type($type) {
+    $this->type = $type;
+  }
+  function get_type() {
+    return $this->type;
+  }
+}
+$inputname=new NewPokemon();
+$inputid=new NewPokemon();
+$inputtype=new NewPokemon();
+$inputname->set_name($newname);
+$inputid->set_id($newid);
+$inputtype->set_type($newtype); */
+    
+
+echo '<h1>New pokemon added</h1>';
+
+}
+for ($i = 0; $i < 50; $i++){
+       if($newname!=$results50[$page][$i]['name'])
+        {$checkname=true;}
+        else{
+            echo 'mistake';
+        }
+        
+    }
+  if($checkname){
+      array_push($results50[$page], (object)[
+          'name'=>$newname,
+          'id'=>$newid,
+          'type'=>$newtype,
+      ]);
+      echo 'Name:' .$newname . 
+          $newid . 
+          $newtype 
+      ;
+  }  
 
 ?>
 
