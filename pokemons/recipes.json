@@ -1,0 +1,23 @@
+{
+  "recipes": [
+    {
+      "id": "eggs",
+      "name": "omelette",
+      "ingredients": "egg, butter",
+      "difficulty": "easy"
+    },
+
+    {
+      "id": "potato",
+      "name": "mashed potato",
+      "ingredients": "potato, butter",
+      "difficulty": "medium"
+    },
+    {
+      "id": "somth",
+      "name": "somth",
+      "ingredients": "potato, butter",
+      "difficulty": "medium"
+    }
+  ]
+}
